@@ -1,0 +1,4 @@
+<% user.badges.all.each do |badge| %>
+  <a data-toggle="tooltip" data-placement="bottom" title="<%= badge.badge.description %>" >
+    <%= image_tag asset_path(badge.badge.image), :size => "20x20" %></a>
+<% end %>

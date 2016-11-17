@@ -1,0 +1,132 @@
+en:
+  layouts:
+    application:
+      navbar:
+        home: "Home"
+        admin_tools: "Admin Tools"
+        search: "Search"
+        profile: "Your profile"
+        edit_profile: "Edit profile"
+        new_site: "Create site"
+        pictures: "Your pictures"
+        log_out: "Log out"
+        log_in: "Log in"
+        sign_up: "Sign up"
+      footer:
+        github: "Fork us on "
+
+  home:
+    title: "Yet Another Super Mega Tool"
+    description: "We put sites to a site so you can surf while you surf"
+    top:
+      sites: "Top sites"
+      creators: "Top creators"
+      commentators: "Top commentators"
+      medalists: "Top medalists"
+
+  sessions:
+    email: "Email"
+    password: "Password"
+    remember_me: "Remember me"
+    submit: "Submit"
+    networks: "...or sign in with"
+    forgot: "Forgot your password?"
+    confirmation_instructions: "Didn't receive confirmation instructions?"
+    unlock: "Didn't receive unlock instructions?"
+    pass: "Password (%{length} characters minimum)"
+    username: "Username"
+    confirm_pass: "Confirm password"
+    
+  users:
+    about: "About: "
+    sites: "Sites"
+    comments: "Comments"
+    badges: "Badges"
+    edit: "Edit"
+    sites_empty: " don't create sites"
+    
+  sites:
+    show:
+      by: "by "
+      pages: "Pages"
+      rating: "Rating: "
+
+  comments:
+    leave: "Leave comment"
+    new: "Submit"
+
+  tags:
+    show:
+      title: "Sites with the '%{tag}' tag"
+
+  search:
+    search:
+      title: "Search"
+      sites: "Sites"
+      pages: "Pages"
+      comments: "Comments"
+    not_found: "Nothing found ¯\\_(ツ)_/¯"
+    
+  pages:
+    index:
+      new_page: "New page"
+      user_images: "User images"
+      all_users: "All users"
+    new:
+      title: "Page title"
+      create_page: "Create page"
+    edit:
+      title: "Page title"
+    page_editor:
+      title: "Title"
+      save: "Save"
+      show: "Show"
+      drop: "Drop components here"
+
+  warnings:
+    are_you_sure: "Are you sure?"
+
+  forms:
+    profile:
+      email: "E-mail"
+      password: "Password"
+      password_confirmation: "Password confirmation"
+      current_password: "Current password"
+      password_needed: "we need your current password to confirm your changes"
+      cancel_account: "Cancel my account"
+
+  content_type:
+    text: "Text"
+    picture: "Picture"
+    video: "Video"
+    table: "Table"
+
+  components:
+    pictures:
+      upload: "Upload new"
+      existing: "Chose from existing"
+      modal: "Your pictures"
+    tables:
+      label: "Label"
+      value: "Value"
+      default:
+        title: "Title"
+        label: "Untitled"
+        value: "Undefined"
+      types:
+        table: "Table"
+        pie2d: "2D Pie"
+        pie3d: "3D Pie"
+        line: "Line"
+        area2d: "Area"
+        bar2d: "2D Bar"
+        bar3d: "3D Bar"
+        column2d: "2D Column"
+        column3d: "3D Column"
+        doughnut2d: "2D Doughnut"
+        doughnut3d: "3D Doughnut"
+    text:
+      placeholder: "Insert markdown here"
+      links_help: "Choose link to page"
+    video:
+      placeholder: "Insert YouTube link here"

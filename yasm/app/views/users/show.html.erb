@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="col-md-8 col-xs-10">
+    <div class="well panel panel-default">
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-xs-12 col-sm-4 text-center">
+            <% unless @user.avatar.nil? %>
+              <img src="<%= @user.avatar %>" alt=""
+                   style="height: 200px; width: 200px; object-fit: cover"
+                   class="img-circle img-thumbnail img-responsive">
+            <% end %>
+            <%= render partial: "users/badges", locals: { user: @user } %>
+          </div>
+          <div class="col-xs-12 col-sm-8">
+            <h3><%= @user.username %></h3>
+            <% unless @user.about.nil? %>
+              <p><strong><%= t("users.about") %></strong><%= @user.about %></p>
+            <% end %>
+          </div>
+          <div class="clearfix"></div>
+          <div class="col-xs-12 col-sm-4">
+            <h2><strong> <%= @user.sites.length %> </strong></h2>
+            <p><small><%= t("users.sites") %></small></p>
+          </div>
+          <div class="col-xs-12 col-sm-4">
+            <h2><strong><%= @user.comments.length %></strong></h2>
+            <p><small><%= t("users.comments") %></small></p>
+          </div>
+          <div class="col-xs-12 col-sm-4">
+            <h2><strong><%= @user.badges.length %></strong></h2>
+            <p><small><%= t("users.badges") %></small></p>
+          </div>
+        </div>
+        <%= button_to t("users.edit"), edit_user_registration_path, :method => "get", :class => "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="col-md-8 col-xs-10">
+    <%= will_paginate @sites %>
+  </div>
+</div>
+
+<div class="container">
+  <div class="col-md-8 col-xs-10">
+    <%= render @sites or @user.username + t("users.sites_empty") %>
+  </div>
+</div>
+
+<div class="container">
+  <div class="col-md-8 col-xs-10">
+    <%= will_paginate @sites %>
+  </div>
+</div>

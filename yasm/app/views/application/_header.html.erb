@@ -1,0 +1,56 @@
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "yasm-tool", root_path, :class => "navbar-brand" %>
+    </div>
+    <div class="collapse navbar-collapse">
+      <form class="navbar-form navbar-left" action="<%= search_path %>" accept-charset="UTF-8" method="get">
+        <div class="form-group">
+          <input class="form-control" placeholder=<%= t("layouts.application.navbar.search") %> name="query" type="text">
+        </div>
+      </form>
+      <ul class="nav navbar-nav">
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= current_user.username %><span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to t("layouts.application.navbar.profile"), user_path(current_user) %></li>
+              <li><%= link_to t("layouts.application.navbar.edit_profile"), edit_user_registration_path %></li>
+              <li class="divider"></li>
+              <li><%= link_to t("layouts.application.navbar.new_site"), new_user_site_path(current_user) %></li>
+              <li><%= link_to t("layouts.application.navbar.pictures"), user_pictures_path(current_user) %></li>
+              <li class="divider"></li>
+              <li><%= link_to t("layouts.application.navbar.log_out"), destroy_user_session_path, :method => :delete %></li>
+            </ul>
+          </li>
+        <% else %>
+          <li><%= link_to t("layouts.application.navbar.log_in"), new_user_session_path %></li>
+          <li><%= link_to t("layouts.application.navbar.sign_up"), new_user_registration_path %></li>
+        <% end %>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= params[:locale] %><span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li>
+              <%= link_to_unless_current "en", locale: "en" do %>
+                <a>en</a>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to_unless_current "ru", locale: "ru" do %>
+                <a>ru</a>
+              <% end %>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

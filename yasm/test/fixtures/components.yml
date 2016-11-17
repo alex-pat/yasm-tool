@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  kind: MyString
+  content: MyText
+  order: 1
+  block: one
+
+two:
+  kind: MyString
+  content: MyText
+  order: 1
+  block: two

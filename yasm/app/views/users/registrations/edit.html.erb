@@ -1,0 +1,101 @@
+<div class="container">
+  <h2 class="page-header">Edit <%= resource_name.to_s.humanize %></h2>
+  <div class="row">
+    <div id="avatar" class="col-md-4 col-sm-6 col-xs-12">
+      <div class="text-center">
+        <h4>Avatar</h4>
+      </div>
+      <% unless @user.avatar.nil? %>
+        <div id="picture" class="text-center">
+          <img src="<%= @user.avatar %>"
+               class="logo img-circle img-thumbnail"
+               style="height: 200px; width: 200px; object-fit: cover"
+               alt="avatar">
+        </div>
+      <% end %>
+      <br />
+      <div class="text-center">
+        <div class="btn-group">
+          <a id="upload" class="btn btn-default">Upload new</a>
+          <a data-toggle="modal" data-target="#existModal" class="btn btn-default">Choose from existing</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8 col-sm-6 col-xs-12">
+      <h4>Personal info</h4>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= devise_error_messages! %>
+
+        <p>
+          <%= f.label :username %><br />
+          <%= f.text_field :username, autofocus: true, class: "form-control" %>
+        </p>
+
+        <p>
+          <%= f.label :about %>
+          <%= f.text_area :about, :class => "form-control" %>
+        </p>
+
+        <% if resource.provider.nil? %>
+          <p>
+            <%= f.label :email %><br />
+            <%= f.email_field :email, class: "form-control" %>
+          </p>
+
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <% end %>
+
+          <p>
+            <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+            <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+            <% if @minimum_password_length %>
+              <em><%= @minimum_password_length %> characters minimum</em>
+            <% end %>
+          </p>
+
+          <p>
+            <%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+          </p>
+
+          <p>
+            <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i>
+            <%= f.password_field :current_password, autocomplete: "on", class: "form-control" %>
+          </p>
+
+        <% end %>
+
+        <%= f.hidden_field :avatar, class: "hidden-input"  %>
+
+        <p>
+          <%= f.submit "Save changes", class: "btn btn-primary" %>
+          <%= link_to "Cancel", :back, class: "btn btn-default" %>
+        </p>
+
+      <% end %>
+    </div>
+  </div>
+</div>
+<span id="upload-path" url="<%= user_pictures_path(current_user) %>"></span>
+
+<div class="modal fade" id="existModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Your pictures</h4>
+      </div>
+      <div class="modal-body">
+        <% @user.pictures.all.each do |picture| %>
+            <a onclick="setImage($existBtn, '<%= picture["public_id"] %>',
+                'http://res.cloudinary.com/task4testcloud/image/upload/<%= picture["public_id"] %>'); $('#existModal').modal('hide');">
+              <%= cl_image_tag(picture["public_id"], :height => 150, :style => 'padding: 10px; border-radius: 20px;') %></a>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

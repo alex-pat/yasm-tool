@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: task4testcloud
+  api_key: '389517198156157'
+  api_secret: 4JiWkZ5YkLCd8-UUrRAy5tRMYBw
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: task4testcloud
+  api_key: '389517198156157'
+  api_secret: 4JiWkZ5YkLCd8-UUrRAy5tRMYBw
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: task4testcloud
+  api_key: '389517198156157'
+  api_secret: 4JiWkZ5YkLCd8-UUrRAy5tRMYBw
+  enhance_image_tag: true
+  static_image_support: false
