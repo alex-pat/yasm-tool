@@ -1,8 +1,18 @@
 class User < ApplicationRecord
+  after_save :add_user_role
   before_save :set_avatar
 
   validates :username, :email, :password, :password_confirmation, :presence => true
   
+  include Badginator::Nominee
+
+  has_many :sites
+  has_many :pictures
+  has_many :comments
+
+  rolify
+  acts_as_voter
+  # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
@@ -21,4 +31,44 @@ class User < ApplicationRecord
     end
   end
 
+  def try_add_comment_achievement
+    try_add_achievement(:first_comment)
+    try_add_achievement(:ten_comments)
+    try_add_achievement(:twenty_comments)
+  end
+
+  def try_add_site_achievement
+    try_add_achievement(:first_site)
+    try_add_achievement(:ten_sites)
+  end
+
+  private
+  def self.create(access_token)
+    @user = User.new(:provider => access_token.provider,
+                    :uid => access_token.uid,
+                    :username => access_token.info.name,
+                    :avatar => access_token.info.image,
+                    :email => "#{access_token.uid}@temp.tmp",
+                    :password => Devise.friendly_token[0,20])
+    @user
+  end
+
+  def add_user_role
+    if User.count == 1
+      self.add_role :admin
+    else
+      self.add_role :user
+    end
+  end
+
+  def try_add_achievement(achievement)
+    status = try_award_badge(achievement)
+    if status.code == Badginator::WON
+      p "Achievement added: " + status.awarded_badge.badge.name
+    end
+  end
+
+  def set_avatar
+    self.avatar ||= "https://res.cloudinary.com/alex-pat-test-cloud/image/upload/v1471635483/nsp1ckhnwr0kkigh77gt.png"
+  end
 end

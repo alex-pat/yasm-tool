@@ -1,0 +1,8 @@
+<ul>
+  <% @sites.each do |site| %>
+    <li>
+      <%= link_to site.title, user_site_path(@user, site) %>
+      <%= link_to("Delete", user_site_path(@user, site), method: :delete) if can? :edit, site %>
+    </li>
+  <% end %>
+</ul>

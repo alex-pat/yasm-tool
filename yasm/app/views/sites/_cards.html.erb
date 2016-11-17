@@ -1,0 +1,67 @@
+<div class="container" xmlns="http://www.w3.org/1999/html">
+  <div class="col-md-8">
+    <div class="row stylish-panel">
+      <% @sites.each do |site| %>
+        <div class="col-md-4 col-sm-4 col-xs-12"
+             style='height:320px; cursor:pointer'
+             onclick="window.location='<%= user_site_path(site.user, site) %>'">
+          <div>
+            <div>
+              <img src="<%= site.logo %>"
+                   style="object-fit: cover; height: 200px; width: 200px;"
+                   alt="Image doesn't exist"
+                   class="img-responsive img-thumbnail img-circle">
+              <h3><%= link_to site.title, user_site_page_path(site.user, site, site.pages.first) %></h3>
+              <p><%= site.description[0..20] + "..." %>
+              </p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div style='text-align:center'>
+      <h3><%= t("home.top.sites") %></h3>
+    </div>
+    <ol>
+      <% @best_sites.each do |site| %>
+        <li>
+          <%= link_to "(#{(site.weighted_score / site.get_upvotes.size.to_f).round(1)}) #{site.title}",
+          user_site_path(site.user, site) %>
+        </li>
+      <% end %>
+    </ol>
+    <div style='text-align:center'>
+      <h3><%= t("home.top.creators") %></h3>
+    </div>
+    <ol>
+      <% @creators.each do |user| %>
+        <li>
+          <%= link_to_user user, :sites %>
+        </li>
+      <% end %>
+    </ol>
+    <div style='text-align:center'>
+      <h3><%= t("home.top.commentators") %></h3>
+    </div>
+    <ol>
+      <% @commentators.each do |user| %>
+        <li>
+          <%= link_to_user user, :comments %>
+        </li>
+      <% end %>
+    </ol>
+<div style='text-align:center'>
+  <h3><%= t("home.top.medalists") %></h3>
+</div>
+    <ol>
+      <% @medalists.each do |user| %>
+        <li>
+          <%= link_to_user user, :badges %>
+        </li>
+      <% end %>
+    </ol>
+    <div id="cloud" url="<%= tags_path %>" style="min-height: 200px;"></div>
+  </div>
+</div>

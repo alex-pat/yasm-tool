@@ -1,0 +1,24 @@
+<div class="user-page-container">
+  <div class="user-page-header">
+    <h3 style="display: inline-block;">
+      <i class="fa fa-globe" aria-hidden="true"></i>
+      <%= link_to site.title, user_site_path(site.user.id, site) %>
+    </h3>
+    <h4 style="display: inline-block; float: right; padding-top: 5px">
+      <%= link_to "<span class='glyphicon glyphicon-pencil'></span>".html_safe,
+                  edit_user_site_path(site.user, site) if can? :edit, site %>
+      <%= link_to("<span class='glyphicon glyphicon-trash'></span>".html_safe,
+                  user_site_path(site.user, site), method: :delete) if can? :destroy, site %>
+    </h4>
+  </div>
+  <div class="user-page-description" onclick="window.location = '<%= user_site_path(site.user, site) %>'">
+    <h4>
+      <%= image_tag(site.logo,
+                    :class => "img-responsive img-rounded img-thumbnail",
+                    :align => "left",
+                    :hspace => 20,
+                    :vspace => 5) %>
+      <%= site.description %>
+    </h4>
+  </div>
+</div>

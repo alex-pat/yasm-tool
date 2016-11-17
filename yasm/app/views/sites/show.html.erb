@@ -1,0 +1,54 @@
+<div class="col-md-offset-2 col-md-10">
+  <h2 id="site-title"><%= link_to @site.title, user_site_page_path(@site.user, @site, @site.pages.first) %>
+    <% if can? :edit, @site %>
+      <a href="<%= edit_user_site_path %>"><span class='glyphicon glyphicon-pencil'></span></a>
+    <% end %>
+    <br />
+    <small>
+      <%= t("sites.show.by") %>
+      <%= link_to_user @user %>
+    </small>
+  </h2>
+  <% unless @site.logo.nil? %>
+    <div>
+      <img src="<%= @site.logo %>" style='max-height: 200px;' class="img-responsive img-rectangle img-thumbnail">
+    </div>
+  <% end %>
+  <h4>
+    <%= @site.description %>
+  </h4>
+  <p>
+    <% if can? :edit, @site %>
+      <%= link_to t("sites.show.pages"), user_site_pages_path(:site_id => @site.id) %>
+    <% end %>
+  </p>
+  <h6>
+    <%= @site.tag_list.map { |tag| link_to tag, tag_path(:tag_name => tag), :class => "tag" }.join(' ').html_safe %>
+  </h6>
+  <% if current_user %>
+    <input id="star-input"
+           name="stars"
+           displayonly="<%= current_user.voted_for? @site %>"
+           value=<%= if current_user.voted_for?(@site)
+                       @site.get_upvotes.find_by(:voter_id => current_user.id).vote_weight
+                     else
+                       0
+                     end %>
+           user="<%= current_user.id %>"
+           class="rating-loading"
+           url="<%= user_site_rate_path(@user, @site) %>">
+  <% end %>
+  <h4 id="rating"><%= t("sites.show.rating") + (@site.weighted_score / @site.get_upvotes.size.to_f).round(1).to_s  unless @site.get_upvotes.empty? %></h4>
+
+  <br/>
+  <div class="row">
+    <div class="col-lg-8 col-sm-8 col-xs-12">
+      <% if can? :create, @site.comments.new %>
+        <%= render "comments/new_comment_field" %>
+      <% end %>
+      <ul class="media-list comments">
+        <%= render @site.comments.all %>
+      </ul>
+    </div>
+  </div>
+</div>
