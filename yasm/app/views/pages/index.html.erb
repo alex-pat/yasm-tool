@@ -1,0 +1,21 @@
+<div class="col-md-offset-1 col-md-8">
+  <h2 style="display: inline-block;"><%= @site[:title] %></h2>
+  <% if can? :create, @pages %>
+    <%= link_to '<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>'.html_safe,
+      new_user_site_page_path,
+      class: " btn-circle btn-lg add-page"
+    %>
+    <br />
+    <br />
+  <% end %>
+
+  <div class="container">
+    <%= render @pages %>
+  </div>
+
+  <div class="container">
+    <div class="col-md-8 col-xs-10">
+      <%= will_paginate @pages %>
+    </div>
+  </div>
+</div>

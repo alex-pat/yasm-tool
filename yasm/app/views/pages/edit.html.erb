@@ -1,0 +1,11 @@
+<div class="form-group">
+  <%= form_for @page, url: user_site_page_path(id: @page.id), remote: true do |f| %>
+    <p>
+      <%= f.label t(".title") %>
+      <%= f.text_field :title, class: 'form-control' %>
+    </p>
+
+    <%= render 'form' %>
+    
+  <% end %>
+</div>

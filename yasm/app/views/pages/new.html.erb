@@ -1,0 +1,11 @@
+<div class="form-group">
+  <%= form_for @page, url: {action: "create"}, remote: true do |f| %> 
+    <p>
+      <%= f.label t("pages.new.title") %>
+      <%= f.text_field :title, class: 'form-control', :value => "Untitled page" %>
+    </p>
+
+    <%= render 'form' %>
+    
+  <% end %>
+</div>
