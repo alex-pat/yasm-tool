@@ -1,0 +1,44 @@
+// Place all the styles related to the PicturesController controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.pictures .thumbnail {
+  position: relative;
+  transition: 0.2s;
+  
+  .glyphicon {
+    opacity: 0;
+  }
+}
+
+.pictures .thumbnail:hover {
+  cursor: pointer;
+  .glyphicon {
+    opacity: 0.8;
+    transition: all 0.3s ease;
+  }
+  margin-top: -10px;
+  border: 1px solid rgb(200, 200, 200);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 2px;
+  background: rgba(200, 200, 200, 0.1);
+  transition: 0.2s;
+}
+
+.pictures .caption {
+  .glyphicon {
+    color:white;
+    text-shadow: 1px 1px 1px black;
+  }
+  bottom: calc(100% - 60px);
+  left: calc(100% - 60px);
+  position: absolute;
+}
+
+.pictures .glyphicon:hover {
+  opacity: 0.9;
+}
+
+#pictureModal img {
+  margin-left: auto;
+  margin-right: auto;
+}

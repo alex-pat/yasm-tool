@@ -1,0 +1,84 @@
+// Place all the styles related to the Sites controller here.
+// They will automatically be included in application.css.scss.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.stylish-panel {
+    padding: 20px 0;
+    text-align: center;
+}
+.stylish-panel > div > div{
+    padding: 10px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: 0.2s;
+}
+.stylish-panel > div:hover > div{
+    margin-top: -10px;
+    border: 1px solid rgb(200, 200, 200);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 2px;
+    background: rgba(200, 200, 200, 0.1);
+    transition: 0.5s;
+}
+
+img {
+    max-height: 200px;
+}
+
+#site-title span {
+    font-size: 0.5em;
+    opacity: 0.2;
+    &:hover {
+        opacity: 0.75;
+    }
+}
+
+.user-page-container {
+    border-radius: 4px;
+    border: 1px solid #c8c8c8;
+    min-height: 175px;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 6px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+    &:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+        span {
+            transition: 0.4s;
+            opacity: 1;
+        }
+    }
+}
+
+.user-page-header {
+    padding-left: 20px;
+    padding-top: 1px;
+    padding-right: 20px;
+    h3 {
+        margin-top: 15px;
+    };
+    h4 {
+        span {
+            opacity: 0;
+            margin-left: 4px;
+        }
+    }
+}
+
+.user-page-description {
+    min-height: 85px;
+    h4 {
+        margin-right: 20px;
+        img {
+            margin-top: 0px;
+            object-fit: cover;
+            height: 100px;
+            width: 100px;
+        }
+    }
+}
+
+.user-page-link {
+    text-align: right;
+    padding-right: 20px;
+    padding-bottom: 1px;
+}
