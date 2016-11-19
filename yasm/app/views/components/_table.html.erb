@@ -1,0 +1,23 @@
+<div class="component component-text" style="text-align:left; box-sizing:border-box; padding:10px">
+  <div id="chart-container-<%= component.order %>">
+    <% if @tables[component.order][:type] == "table" %>
+      <div style="text-align:center">
+        <%= @tables[component.order][:title] %>
+      </div>
+      <table class="table table-hover table-condensed">
+         <tr>
+           <th>Name</th>
+           <th>Value</th>
+         </tr>
+         <% @tables[component.order][:table].each do |line| %>
+           <tr>
+             <th><%= line["label"] %></th>
+             <th><%= line["value"] %></th>
+           </tr>
+         <% end %>
+      </table>
+    <% else %>
+      <%= @tables[component.order][:table].render %>
+    <% end %>
+  </div>
+</div>

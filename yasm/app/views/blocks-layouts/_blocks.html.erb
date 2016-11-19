@@ -1,0 +1,11 @@
+<% blocks(@page.layout.to_sym).each do |position| %>
+  <fieldset class="block" position="<%= position %>" style='border: none; padding: 15px;'>
+    <% block = @page.blocks.find_by(:position => position) %>
+    <% if block %>
+      <% block.components.all.to_a.each do |component| %>
+          <%= render partial: "components/#{component.kind}", locals: {component: component} %>
+        <br />
+      <% end %>
+    <% end %>
+  </fieldset>
+<% end %>

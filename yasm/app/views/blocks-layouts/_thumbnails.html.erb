@@ -1,0 +1,6 @@
+<% layouts.each do |layout| %>
+  <div class="layout-thumbnail-button btn btn-default" layout="<%= layout %>">
+    <img src='<%= asset_path( "#{layout}.png") %>'>
+  </div>
+<% end %>
+

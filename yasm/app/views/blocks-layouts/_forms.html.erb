@@ -1,0 +1,22 @@
+<% layout = @page.layout ? @page.layout.to_sym : :tori %>
+<div class="form-layout form-layout-<%= layout %>" layout="<%= layout %>">
+  <% blocks(layout).each do |position| %>
+    <fieldset class="block" position="<%= position %>">
+      <div class="components-list connectedSortable">
+        <ul id="complist">
+          <% if @page %>
+            <% block = @page.blocks.find_by(:position => position) %>
+            <% if block %>
+              <% block.components.all.to_a.each do |component| %>
+                <li class="list-group-item">
+                  <%= render partial: "components/forms/#{component.kind}", locals: {component: component, position: position} %>
+                </li>
+              <% end %>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </fieldset>
+  <% end %>
+</div>
+

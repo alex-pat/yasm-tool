@@ -1,0 +1,44 @@
+<p>
+  <div class="row">
+    <div class="col-md-6 text-left">
+      <div class="btn-group" role="group">
+        <div class="fixed">
+          <%= render 'components/thumbnails/text' %> <br/>
+          <%= render 'components/thumbnails/image' %> <br/>
+          <%= render 'components/thumbnails/video' %> <br/>
+          <%= render 'components/thumbnails/table' %>
+        </div>
+      </div>
+      <div class="btn-group" role="group">
+        <%= render partial: 'blocks-layouts/thumbnails' %>
+	<input type="hidden" class="layout-type" name="layout"
+               value="<%= @page.layout || "tori" %>">
+      </div>
+    </div>
+  </div>
+</p>
+<div class="row">
+  <div class="col-md-12" id="components-panel-container">
+    <div class="panel panel-default" id="components-panel">
+      <div class="panel-heading">
+	<%= t("pages.page_editor.drop") %>
+      </div>
+      <div class="panel-body" id="components-panel-body">
+        <%= render partial: "blocks-layouts/forms" %>
+      </div>
+      <div class="panel-footer">
+        <div class="btn-group" role="group">
+          <%= submit_tag(value = t("pages.page_editor.save"), class: 'btn btn-success') %>
+        </div>
+        <% if @page.id %>
+          <div id="publish" style="display:inline">
+            <%= link_to t("pages.page_editor.show"),
+              user_site_page_path(@page.site.user, @page.site, @page),
+              :class => "btn btn-default",
+              :target => "_blank" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

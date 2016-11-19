@@ -1,0 +1,8 @@
+<ul class="dropdown-menu dropdown-menu-right">
+  <li class="dropdown-header"><%= t("components.text.links_help") %></li>
+  <% @site.pages.all.each do |page| %>
+    <li>
+      <a onclick="return insert_link(this,'<%= "[#{page.title}](#{page.url})" %>')"><%= page.title %></a>
+    </li>
+  <% end %>
+</ul>

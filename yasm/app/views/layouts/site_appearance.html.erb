@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= "#{@page.title} - #{@site.title} - YASM-tool" %></title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag 'https://bootswatch.com/' + @site.theme + '/bootstrap.min.css', 'blocks', 'data-turbolinks-track': 'reload', media: 'all' %>
+    <%= javascript_include_tag 'application',  'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body style='padding-top: 70px;'>
+    <%= render "application/user_site_header" %>
+    <div id="wrap">
+      <div class="container">
+        <%= yield %>
+      </div>
+      <div id="push"></div>
+    </div>
+
+    <div class="container">
+      <p class="muted credit" style='text-align:center'>
+        <%= link_to "YASM-tool, #{@site.created_at.year}", root_path %>
+      </p>
+    </div>
+  </body>
+</html>

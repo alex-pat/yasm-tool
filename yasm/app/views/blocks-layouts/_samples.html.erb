@@ -1,0 +1,11 @@
+<div class="form-layout-sample form-layout-sample-<%= layout %>" layout="<%= layout %>">
+  <% blocks(layout).each do |block| %>
+    <fieldset class="block" position="<%= block %>">
+      <div class="components-list connectedSortable">
+        <ul id="complist">
+
+        </ul>
+      </div>
+    </fieldset>
+  <% end %>
+</div>

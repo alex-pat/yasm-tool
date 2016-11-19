@@ -1,0 +1,12 @@
+<div class="col-md-7 col-xs-12 col-sm-11 page-row">
+  <div class="row">
+    <div id="page">
+      <h4><%= link_to page.title, user_site_page_path(:id => page.id) %></h4>
+    </div>
+    <div class="page-buttons">
+      <%= link_to "<span class='glyphicon glyphicon-pencil'></span>".html_safe,
+        edit_user_site_page_path(:id => page.id)  if can? :edit, page %>
+      <%= link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe, user_site_page_path(:id => page.id), method: :delete if can? :destroy, page %>
+    </div>
+  </div>
+</div>
