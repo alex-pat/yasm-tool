@@ -14,5 +14,49 @@
  *= require_tree .
  *= require_self
  *= require jquery-ui
+ *= require magicsuggest
+ *= require bootstrap-star-rating
+ *= require fontawesome
+ *= require jqcloud
+ *= require bootstrap-markdown
 */
 
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+    padding-top: 70px;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+#wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -60px;
+}
+
+#push,
+#footer {
+    height: 60px;
+}
+#footer {
+    background-color: #f5f5f5;
+}
+
+@media (max-width: 767px) {
+    #footer {
+        margin-left: -20px;
+        margin-right: -20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+.navbar {
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2);
+}

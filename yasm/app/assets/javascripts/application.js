@@ -16,4 +16,14 @@
 //= require jquery-ui
 //= require jqueryui-touch-punch
 //= require bootstrap-sprockets
+//= require magicsuggest
+//= require aviary-editor
+//= require jqcloud
+//= require bootstrap-markdown
+//= require marked
 //= require_tree .
+//= require turbolinks
+//= require bootstrap-star-rating
+//= require fusioncharts/fusioncharts
+//= require fusioncharts/fusioncharts.charts
+//= require fusioncharts/themes/fusioncharts.theme.fint
