@@ -1,0 +1,16 @@
+<div class="form-component-sample form-component-sample-text" kind="text">
+  <input type="hidden" class="hidden-input">
+  <div class="form-group">
+    <div style='display: inline-block'>
+      <label><%= t("content_type.text") %></label>
+      <div class="components-buttons">
+        <div class="dropdown" style='display: inline-block;'>
+          <a data-toggle="dropdown"><span class="component-button glyphicon glyphicon-cog"></span></a>
+          <%= render partial: "pages/links" %>
+        </div>
+        <span class="component-button glyphicon glyphicon-remove rm-component-button"></span>
+      </div>
+    </div>
+    <textarea class="form-control" data-hidden-buttons="cmdImage" placeholder="<%= t("components.text.placeholder") %>" cols="30" rows="10"></textarea>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="form-component form-component-video" kind="video">
+  <input type="hidden" name="components[<%= position %>][<%= component.order %>][video]" value="<%= component.content %>" class="hidden-input">
+  <input type="hidden" name="components[<%= position %>][<%= component.order %>][id]" value="<%= component.id %>" class="id-input">
+  <div class="form-group">
+    <div style='display: inline-block'>
+      <label><%= t("content_type.video") %></label>
+      <div class="components-buttons">
+        <span class="component-button glyphicon glyphicon-remove rm-component-button"></span>
+      </div>
+      <input class="form-control"
+             data-order="<%= component.order %>"
+             kind="video"
+             value="<%= component.content %>"
+             placeholder="<%= t("components.video.placeholder") %>">
+    </div>
+  </div>
+</div>

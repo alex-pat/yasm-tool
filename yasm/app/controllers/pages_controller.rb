@@ -30,7 +30,6 @@ class PagesController < ApplicationController
   
   def edit
     @page = @site.pages.find(params[:id])
-    edit_tables
   end
 
   def update

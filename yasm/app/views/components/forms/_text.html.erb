@@ -1,0 +1,17 @@
+<div class="form-component form-component-text" kind="text">
+  <input type="hidden" name="components[<%= position %>][<%= component.order %>][text]" value="<%= component.content %>" class="hidden-input">
+  <input type="hidden" name="components[<%= position %>][<%= component.order %>][id]" value="<%= component.id %>" class="id-input">
+  <div class="form-group">
+    <div style='display: inline-block'>
+      <label><%= t("content_type.text") %></label>
+      <div class="components-buttons">
+        <div class="dropdown" style='display: inline-block;'>
+          <a data-toggle="dropdown"><span class="component-button glyphicon glyphicon-cog"></span></a>
+          <%= render partial: "pages/links" %>
+        </div>
+        <span class="component-button glyphicon glyphicon-remove rm-component-button"></span>
+      </div>
+    </div>
+    <textarea class="form-control" rows="10" data-provide="markdown" placeholder="<%= t("components.text.placeholder") %>" data-hidden-buttons="cmdImage" data-order="<%= component.order %>" kind="text"><%= component.content %></textarea>
+  </div>
+</div>

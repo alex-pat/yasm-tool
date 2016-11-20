@@ -1,0 +1,28 @@
+<div class="form-component form-component-image" kind="image">
+  <input type="hidden" class="hidden-input" name="components[<%= position %>][<%= component.order %>][image]" value="<%= component.content %>">
+  <input type="hidden" name="components[<%= position %>][<%= component.order %>][id]" value="<%= component.id %>" class="id-input">
+  <div class="form-group">
+    <div style='display: inline-block;'>
+      <label><%= t("content_type.picture") %></label>
+      <div class="components-buttons">
+        <span class="component-button glyphicon glyphicon-cog" onclick="return launchEditor($(this).closest('.form-component').find('img'));"></span>
+        <span class="component-button glyphicon glyphicon-remove rm-component-button rm-component-button"></span>
+      </div>
+    </div>
+    <div id="picture">
+      <%= cl_image_tag(component.content,
+                       :class => "img-responsive",
+                       :height => 500,
+                       :crop => :limit,
+                       :id => component.content) %>
+      <br/>
+    </div>
+    <div class="btn-group-vertical">
+      <a id="upload" class="btn btn-default"><%= t("components.pictures.upload") %></a>
+      <a data-toggle="modal" data-target="#existModal" class="btn btn-default"><%= t("components.pictures.existing") %></a>
+    </div>
+    <br>
+    <br>
+  </div>
+</div>
+
