@@ -1,0 +1,25 @@
+<li class="media">
+  <div class="pull-left" style='max-width: 78px;'>
+    <a href="<%= user_path(comment.user) %>">
+      <img class="media-object img-circle img-thumbnail"
+           src="<%= comment.user.avatar %>"
+           style="height: 64px; width: 64px; object-fit: cover"
+           alt="No avatar"><br/>
+    </a>
+    <%= render partial: "users/badges", locals: { user: comment.user } %>
+  </div>
+  <div class="media-body">
+    <h5 class="media-heading pull-left"><b><%= comment.user.username %></b></h5>`
+    <% if can? :manage, comment %>
+        <div class="comment-info pull-left">
+          <%= link_to "&times;".html_safe, user_site_comment_path(comment.user_id, comment.commentable_id, comment.id),
+                      :method => :delete,
+                      :class => "close",
+                        :remote => true
+          %>
+        </div>
+    <% end %>
+    <br class="clearfix">
+    <p class="well"><%= comment.comment %></p>
+  </div>
+</li>

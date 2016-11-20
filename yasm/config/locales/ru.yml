@@ -1,0 +1,132 @@
+ru:
+  layouts:
+    application:
+      navbar:
+        home: "Главная"
+        admin_tools: "Админ-панель"
+        search: "Поиск"
+        profile: "Мой профиль"
+        edit_profile: "Редактировать профиль"
+        new_site: "Создать сайт"
+        pictures: "Мои картинки"
+        log_out: "Выйти"
+        log_in: "Войти"
+        sign_up: "Регистрация"
+      footer:
+        github: "Форк ас он "
+
+  home:
+    title: "Yet Another Super Mega tool"
+    description: "Мы поместили сайты в сайт, чтобы ты мог сёрфить, пока сёрфишь"
+    top:
+      sites: "Топ сайтов"
+      creators: "Топ создателей"
+      commentators: "Топ комментаторов"
+      medalists: "Топ медалистов"
+
+  sessions:
+    email: "Почта"
+    password: "Пароль"
+    remember_me: "Запомнить меня"
+    submit: "Подтвердить"
+    networks: "...или войти с помощью"
+    forgot: "Забыли пароль?"
+    confirmation_instructions: "Не получили инструкций по подтверждению?"
+    unlock: "Не получили инструкий по разблокировке?"
+    pass: "Пароль (минимум %{length} символов)"
+    username: "Имя"
+    confirm_pass: "Подтвердите пароль"
+    
+  users:
+    about: "Обо мне: "
+    sites: "Сайты"
+    comments: "Комментарии"
+    badges: "Достижения"
+    edit: "Редактировать"
+    sites_empty: " не создавал сайтов"
+
+  sites:
+    show:
+      by: "от "
+      pages: "Страницы"
+      rating: "Рейтинг: "
+
+  comments:
+    leave: "Оставить комментарий"
+    new: "Добавить"
+
+  tags:
+    show:
+      title: "Сайты с тегом '%{tag}'"
+    
+  search:
+    search:
+      title: "Поиск"
+      sites: "Сайты"
+      pages: "Страницы"
+      comments: "Комменты"
+    not_found: "Ничего нет ¯\\_(ツ)_/¯"
+    
+  pages:
+    index:
+      new_page: "Создать страницу"
+      user_images: "Изображения пользователя"
+      all_users: "Все пользователи"
+    new:
+      title: "Заголовок страницы"
+      create_page: "Создать страницу"
+    edit:
+      title: "Заголовок страницы"
+    page_editor:
+      title: "Название"
+      save: "Сохранить"
+      show: "Показать"
+      drop: "Перетащите сюда компоненты"
+
+  warnings:
+    are_you_sure: "Вы уверены?"
+
+  forms:
+    profile:
+      email: "E-mail"
+      password: "Пароль"
+      password_confirmation: "Подтверждение пароля"
+      current_password: "Текущий пароль"
+      password_needed: "Нам необходим ваш пароль для подтверждения изменений"
+      cancel_account: "Cancel my account"
+
+  content_type:
+    text: "Текст"
+    picture: "Картинка"
+    video: "Видео"
+    table: "Таблица"
+
+  components:
+    pictures:
+      upload: "Зарузить новую"
+      existing: "Выбрать из загруженных"
+      modal: "Ваши картинки"
+    tables:
+      label: "Метка"
+      value: "Значение"
+      default:
+        title: "Название"
+        label: "Безымянный"
+        value: "Неопределенный"
+      types:
+        table: "Таблица"
+        pie2d: "2D Пирог"
+        pie3d: "3D Пирог"
+        line: "Линия"
+        area2d: "Область"
+        bar2d: "2D Брусья"
+        bar3d: "3D Брусья"
+        column2d: "2D Колонки"
+        column3d: "3D Колонки"
+        doughnut2d: "2D Пончик"
+        doughnut3d: "3D Пончик"
+    text:
+      placeholder: "Пишите маркдаун здесь"
+      links_help: "Выберите ссылку на страницу"
+    video:
+      placeholder: "Вставьте ссылку с YouTube"
