@@ -1,0 +1,28 @@
+<div class="col-md-offset-2 col-md-8">
+    <p>
+      <h1 id="search-label"><%= t(".title") %></h1>
+      <div style="text-align: center">
+        <div class="btn-group" data-toggle="buttons">
+          <label class="btn btn-default toggle" name="Site">
+            <input type="checkbox" autocomplete="off"><%= t(".sites") %>
+          </label>
+          <label class="btn btn-default toggle" name="Page">
+            <input type="checkbox" autocomplete="off"><%= t(".pages") %>
+          </label>
+          <label class="btn btn-default toggle" name="Comment">
+            <input type="checkbox" autocomplete="off"><%= t(".comments") %>
+          </label>
+        </div>
+      </div>
+      <br>
+      <%= text_field_tag(:query,
+                         params[:query],
+                         :class => "form-control input-lg",
+                         :id => "search-form",
+                         :url => search_path,
+                         :autocomplete => "off") %>
+    </p>
+  <div id="results">
+    <%= render partial: "results" %>
+  </div>
+</div>

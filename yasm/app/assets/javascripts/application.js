@@ -24,6 +24,3 @@
 //= require_tree .
 //= require turbolinks
 //= require bootstrap-star-rating
-//= require fusioncharts/fusioncharts
-//= require fusioncharts/fusioncharts.charts
-//= require fusioncharts/themes/fusioncharts.theme.fint

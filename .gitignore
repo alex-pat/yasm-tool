@@ -91,3 +91,11 @@ flycheck_*.el
 
 # projectiles files
 .projectile
+
+yasm/solr/data
+yasm/solr/test
+yasm/solr/development
+yasm/solr/default/data
+yasm/log/*.log.lck
+yasm/solr/pids
+

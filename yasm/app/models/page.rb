@@ -7,6 +7,13 @@ class Page < ApplicationRecord
   before_create :check_empty
   after_save :set_url
 
+  searchable do
+    text :title, stored: true
+    text(:text, stored: true) do
+      components.map { |comp| comp.content if comp.kind == "text" }.join(' ')
+    end
+  end
+  
   def update_blocks(blocks_hash, new_layout = nil)
 
     return unless blocks_hash

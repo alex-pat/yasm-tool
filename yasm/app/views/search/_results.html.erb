@@ -1,0 +1,6 @@
+<div id="#results-list">
+  <% @search.each_hit_with_result do |hit, result| %>
+    <%= render partial: result.class.to_s, locals: { hit: hit, result: result } %>
+  <% end %>
+</div>
+<h1 style="text-align:center"><%= t("search.not_found") if @search.results.empty? %></h1>

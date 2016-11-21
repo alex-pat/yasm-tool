@@ -14,7 +14,7 @@ GIT
 
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: 9e1c66ee036c640ac1b65aab35947c2ebd2671ef
+  revision: 81f612f5bc16da61dbdd5356b7ac594c53a11836
   specs:
     rails_admin (1.1.0)
       builder (~> 3.1)
@@ -118,7 +118,6 @@ GEM
     ffi (1.9.14)
     font-awesome-rails (4.7.0.0)
       railties (>= 3.2, < 5.1)
-    fusioncharts-rails (0.0.2)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     haml (4.0.7)
@@ -200,7 +199,7 @@ GEM
     orm_adapter (0.5.0)
     pg (0.19.0)
     pr_geohash (1.0.0)
-    puma (3.6.0)
+    puma (3.6.1)
     rack (2.0.1)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -314,7 +313,6 @@ DEPENDENCIES
   cloudinary
   coffee-rails (~> 4.2)
   devise
-  fusioncharts-rails
   jbuilder (~> 2.5)
   jqcloud-rails
   jquery-rails
@@ -346,7 +344,7 @@ DEPENDENCIES
   will_paginate
 
 RUBY VERSION
-   ruby 2.3.1p112
+   ruby 2.3.2p217
 
 BUNDLED WITH
    1.13.1
