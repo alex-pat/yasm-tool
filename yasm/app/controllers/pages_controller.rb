@@ -60,7 +60,6 @@ class PagesController < ApplicationController
   def show
     @page = @site.pages.find(params[:id])
     @markdown = Redcarpet::Markdown.new Redcarpet::Render::HTML.new
-    show_tables
     render layout: "site_appearance"
   end
 

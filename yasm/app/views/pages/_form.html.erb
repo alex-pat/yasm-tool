@@ -2,7 +2,6 @@
 <%= render 'components/samples/text' %>
 <%= render 'components/samples/image' %>
 <%= render 'components/samples/video' %>
-<%= render 'components/samples/table' %>
 
 <%= layouts.map { |name| render partial: 'blocks-layouts/samples', locals: { layout: name } }.join.html_safe %>
 

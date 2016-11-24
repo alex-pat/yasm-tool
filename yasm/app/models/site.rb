@@ -1,5 +1,5 @@
 class Site < ApplicationRecord
-  validates :title, :description, :logo, :theme, :presence => true
+  validates :title, :description, :theme, :presence => true
 
   resourcify
   belongs_to :user
@@ -12,5 +12,9 @@ class Site < ApplicationRecord
   searchable do
     text :title, stored: true
     text :description, stored: true
+  end
+
+  def rating
+    weighted_score / get_upvotes.length.to_f
   end
 end

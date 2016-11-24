@@ -72,5 +72,3 @@ gem 'bower-rails'
 gem 'jqcloud-rails'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
-
-ruby '2.3.2'

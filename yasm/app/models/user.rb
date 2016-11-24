@@ -20,8 +20,9 @@ class User < ApplicationRecord
          :omniauth_providers => [:facebook, :vkontakte, :twitter]
 
   def self.find_for_oauth(access_token)
-    if @user = User.where(:provider => access_token.provider)
-               .where(:uid => access_token.uid).first
+    if @user = User.where("provider = ? AND uid = ?",
+                          access_token.provider,
+                          access_token.uid).first
       @user
     else
       @user = User.create(access_token)
@@ -64,8 +65,20 @@ class User < ApplicationRecord
   def try_add_achievement(achievement)
     status = try_award_badge(achievement)
     if status.code == Badginator::WON
-      p "Achievement added: " + status.awarded_badge.badge.name
+      puts "Achievement added: " + status.awarded_badge.badge.name
     end
+  end
+
+  def commentators_rating
+    comments.length
+  end
+
+  def medalists_rating
+    badges.length
+  end
+
+  def creators_rating
+    sites.length
   end
 
   def set_avatar

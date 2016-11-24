@@ -57,11 +57,11 @@ class SitesController < ApplicationController
 
   def home
     @sites = Site.all.to_a
-    top_sites
+    @best_sites = get_top @sites, "rating"
     @users = User.all.to_a
-    top_commetators
-    top_medalists
-    top_creators
+    @commentators = get_top @users, "commentators_rating"
+    @medalists = get_top @users, "medalists_rating"
+    @creators = get_top @users, "creators_rating"
   end
   
   private
@@ -73,25 +73,10 @@ class SitesController < ApplicationController
     params.require(:site).permit(:title, :description, :logo, :theme, { :tag_list => [] } )
   end
 
-  def top_sites
-    @best_sites = @sites.find_all { |x| x.get_upvotes.length != 0 }.sort do |a,b|
-      b.weighted_score / b.get_upvotes.length.to_f - a.weighted_score / a.get_upvotes.length.to_f
+  def get_top(toppers, criterion)
+    top = toppers.find_all do |x|
+      x.send(criterion).nonzero? && x.send(criterion).to_f.finite?
     end
-    @best_sites = @best_sites[0,10]
-  end
-
-  def top_commetators
-    @commentators = @users.find_all { |x| x.comments.length != 0 }
-    @commentators = @commentators.sort { |a,b| b.comments.length - a.comments.length }[0,10]
-  end
-
-  def top_medalists
-    @medalists = @users.find_all { |x| x.badges.length != 0 }
-    @medalists = @medalists.sort { |a,b| b.badges.length - a.badges.length }[0,10]
-  end
-
-  def top_creators
-    @creators = @users.find_all { |x| x.sites.length != 0 }
-    @creators = @creators.sort { |a,b| b.sites.length - a.sites.length }[0,10]
+    top = top.sort { |a,b| b.send(criterion) - a.send(criterion) }[0,10]
   end
 end
