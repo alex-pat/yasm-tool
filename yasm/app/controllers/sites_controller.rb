@@ -10,6 +10,10 @@ class SitesController < ApplicationController
   end
 
   def create
+    if params[:site][:title] == ""
+      redirect_to new_user_site_path(@user.id)
+      return 
+    end
     @site = @user.sites.new(site_params)
     Component.transaction do
         @site.save
